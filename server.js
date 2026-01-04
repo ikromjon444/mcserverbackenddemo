@@ -24,8 +24,8 @@ const onlinePlayers = new Set();
 
 function createBot() {
   bot = mineflayer.createBot({
-    host: '176.114.72.37',
-    port: 25742,
+    host: '195.201.204.247',
+    port: 25591,
     username: 'Dastavkachi',
     version: '1.21'
   });
