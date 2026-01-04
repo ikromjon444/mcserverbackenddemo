@@ -13,11 +13,10 @@ app.use(express.static('public'));
 
 // ================= PostgreSQL =================
 const pool = new Pool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 // ================= Bot =================
 let bot = null; // botni qayta ulanadigan qilib o'zgartiramiz
@@ -26,7 +25,7 @@ const onlinePlayers = new Set();
 function createBot() {
   bot = mineflayer.createBot({
     host: '176.114.72.37',
-    port: 25971,
+    port: 25742,
     username: 'Dastavkachi',
     version: '1.21'
   });
@@ -284,5 +283,8 @@ app.post('/play-game', auth, async (req, res) => {
 });
 
 // ================= Server =================
-const PORT = 3000;
-app.listen(PORT, () => console.log(`🚀 Server http://localhost:${PORT} da ishlayapti`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server ${PORT} portda ishga tushdi`);
+});
+
