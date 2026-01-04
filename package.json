@@ -16,7 +16,11 @@
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
+    "minecraft-server-util": "^5.4.4",
     "mineflayer": "^4.33.0",
-    "pg": "^8.16.3"
+    "mongoose": "^9.1.0",
+    "multer": "^2.0.2",
+    "pg": "^8.16.3",
+    "socket.io": "^4.8.3"
   }
 }
